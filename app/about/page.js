@@ -22,7 +22,7 @@ export default function About() {
         transition={{ duration: 0.7 }}
         className="max-w-5xl"
       >
-        <h1 className="text-43xl md:text-5xl font-bold mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6">
           About <span className="text-blue-600 dark:text-blue-400">Me</span>
         </h1>
 

@@ -47,7 +47,7 @@ export default function Projects() {
         dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
       "
     >
-      <h2 className="text-3xl font-bold mb-10">Projects</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-10">Projects</h2>
 
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((p) => (
