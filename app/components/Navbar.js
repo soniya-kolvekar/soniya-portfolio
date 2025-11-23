@@ -30,12 +30,14 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full fixed top-0 left-0 
-      backdrop-blur-xl
-      bg-white/40 dark:bg-gray-900/30 
-      border-b border-white/20 dark:border-gray-700/40
-      shadow-[0_4px_30px_rgba(0,0,0,0.05)]
-      z-50 transition-all"
+      className="
+        w-full fixed top-0 left-0 z-[9999] transition-all backdrop-blur-xl
+        bg-gradient-to-r 
+        from-white/60 to-white/30
+        dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+        border-b border-white/20 dark:border-gray-800/50
+        shadow-[0_4px_30px_rgba(0,0,0,0.05)]
+      "
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
@@ -50,40 +52,41 @@ export default function Navbar() {
         </motion.h1>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-800 dark:text-gray-200">
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="relative">
-              <span>{l.name}</span>
-
-              {/* ACTIVE LINK HIGHLIGHT */}
-              {pathname === l.href && (
-                <span className="
-                  absolute left-0 right-0 -bottom-1 mx-auto
-                  h-[2px] w-full
-                  bg-blue-600 dark:bg-blue-400
-                  rounded-full
-                  animate-pulse
-                " />
-              )}
+            <Link
+              key={l.href}
+              href={l.href}
+              className={`transition ${
+                pathname === l.href
+                  ? "text-blue-600 dark:text-blue-400 font-semibold"
+                  : "text-gray-800 dark:text-gray-200"
+              }`}
+            >
+              {l.name}
             </Link>
           ))}
 
-          <a
-            href="https://drive.google.com/uc?export=download&id=DEMO_ID"
+                    <a
+            href="https://drive.google.com/file/d/1Sh8WMrnjvhyit3Ueb5OG-NJxgizh9R6Q/view"
             target="_blank"
             rel="noreferrer"
-            className="px-4 py-1.5 rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-          >
+            className="px-4 py-1.5 rounded-md border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            >
             Resume
-          </a>
+            </a>
+
         </div>
 
         {/* MOBILE HAMBURGER BUTTON */}
         <motion.button
           whileTap={{ scale: 0.85 }}
-          className="md:hidden text-3xl p-2 rounded-md 
-          bg-gray-100 dark:bg-gray-800 
-          text-gray-900 dark:text-gray-200 shadow-sm"
+          className="
+            md:hidden text-3xl p-2 rounded-md
+            bg-gray-200 dark:bg-gray-800 
+            text-gray-900 dark:text-gray-100 
+            shadow-sm z-[999]
+          "
           onClick={() => setOpen(!open)}
         >
           {open ? <FiX /> : <FiMenu />}
@@ -100,14 +103,12 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
             className="
-              md:hidden 
-              backdrop-blur-xl
-              bg-white/50 dark:bg-gray-900/40 
-              border-t border-white/20 dark:border-gray-700/40
-              shadow-xl 
-              px-6 py-4 
-              flex flex-col gap-4 
-              text-gray-800 dark:text-gray-200
+              md:hidden backdrop-blur-xl
+              bg-white/70 dark:bg-gray-900/70
+              border-t border-gray-200 dark:border-gray-700 
+              shadow-xl px-6 py-4 flex flex-col gap-4
+              text-gray-900 dark:text-gray-200 
+              z-[999]
             "
           >
             {links.map((l) => (
@@ -115,19 +116,13 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="relative py-1"
+                className={`py-1 ${
+                  pathname === l.href
+                    ? "text-blue-600 dark:text-blue-400 font-semibold"
+                    : "text-gray-800 dark:text-gray-200"
+                }`}
               >
                 {l.name}
-
-                {/* MOBILE ACTIVE LINK INDICATOR */}
-                {pathname === l.href && (
-                  <span className="
-                    absolute left-0 right-0 -bottom-1 mx-auto
-                    h-[2px] w-full
-                    bg-blue-600 dark:bg-blue-400
-                    rounded-full
-                  " />
-                )}
               </Link>
             ))}
 
@@ -136,7 +131,7 @@ export default function Navbar() {
               target="_blank"
               rel="noreferrer"
               onClick={() => setOpen(false)}
-              className="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition text-center"
+              className="px-4 py-2 text-center rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             >
               Resume
             </a>

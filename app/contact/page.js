@@ -61,12 +61,12 @@ export default function Contact() {
         relative
         min-h-screen px-6 md:px-20 py-16
         bg-gradient-to-b from-blue-50 via-white to-white
-        dark:from-gray-900 dark:via-gray-900 dark:to-gray-950
+        dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
         transition-all
       "
     >
       {/* Floating Background Icons */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10">
+      <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10 z-0">
         <motion.div
           animate={{ y: [0, -20, 0] }}
           transition={{ repeat: Infinity, duration: 6 }}
@@ -93,9 +93,15 @@ export default function Contact() {
       </div>
 
       {/* Glow behind content */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 blur-[110px] opacity-40 dark:opacity-30
-        bg-blue-300 dark:bg-blue-700 w-[500px] h-[300px] rounded-full -z-10">
-      </div>
+                    <div className="
+                absolute top-1/2 left-1/2 -translate-x-1/2 
+                blur-[110px] opacity-40 dark:opacity-30
+                bg-blue-300 dark:bg-blue-700 
+                w-[300px] sm:w-[500px] h-[200px] sm:h-[300px]
+                rounded-full 
+                -z-10
+                ">
+                    </div>
 
       <motion.div
         initial="hidden"

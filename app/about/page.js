@@ -11,7 +11,7 @@ export default function About() {
         px-6 md:px-20 py-16
         bg-gradient-to-b 
         from-blue-50 via-white to-white
-        dark:from-gray-900 dark:via-gray-900 dark:to-gray-950
+        dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
         transition-all
       "
     >
